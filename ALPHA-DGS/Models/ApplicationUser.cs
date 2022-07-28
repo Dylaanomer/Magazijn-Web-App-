@@ -11,6 +11,10 @@ namespace ALPHA_DGS.Models
 {
     public class ApplicationUser : IdentityUser
     {
+
+        //GEBRUIKERS MODEL
+
+
         [Required]
 
         public string Name { get; set; }
