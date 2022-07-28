@@ -1,7 +1,7 @@
 ﻿@model ALPHA_DGS.Models.MagazijnPartijModelView
 
 @{ ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_Layout2.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <style>
     table {
@@ -70,13 +70,14 @@
 
         Tot: <input type="text" asp-for="SearchString8"/>
         <input type="submit" value="Filter" />
+        Land:
         <select asp-for="LandGenre" asp-items="Model.Landen">
             <option value="" input >All</option>
         </select>
        
         <input type="submit" value="Filter" />
-        PHerk: <input type="text" asp-for="SearchString3" />
-        <input type="submit" value="Filter" />
+        
+        <br /> <br />
         Magazijn: <input type="text" asp-for="SearchString4" />
         <input type="submit" value="Filter" />
 
@@ -87,6 +88,7 @@
 <div id="PlaceHolderHere"></div>
 
 <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action("Create")"> Voeg Toe</button>
+
 <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action("CreateFree")"> Vrije invoer</button>
 <table class="table">
     <table class="table">
@@ -258,3 +260,4 @@
 
 
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
