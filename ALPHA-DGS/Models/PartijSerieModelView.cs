@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace ALPHA_DGS.Models
 {
     [Keyless]
+
+    //PARTIJSERIES MODEL VIEW VOOR INDEX OF ZOEK FUNCTIES (INDEXMORE IN PARTIJSERIES CONTROLLER)
+
     public class PartijSeriesModelView
     {
         public List<Partijserie> Partijseries { get; set; }
