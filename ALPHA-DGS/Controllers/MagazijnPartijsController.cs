@@ -347,6 +347,8 @@ namespace ALPHA_DGS.Controllers
 
         // GET: MagazijnPartijs/Create (INVOER)
 
+        // LET OP PARTIAL VIEW IN VIEWS
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -361,6 +363,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // POST: MagazijnPartijs/Create (INVOER MET VALIDATIE)
+
+        // LET OP PARTIAL VIEW IN VIEWS
         [HttpPost]
         public IActionResult Create(MagazijnPartij emp)
         {
@@ -374,6 +378,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // GET: MagazijnPartijs/Create (INVOER ZONDER VALIDATIE)
+
+        // LET OP PARTIAL VIEW IN VIEWS
         [HttpGet]
         public IActionResult CreateFree()
         {
@@ -388,6 +394,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // POST: MagazijnPartijs/Create (INVOER ZONDER VALIDATIE)
+
+        // LET OP PARTIAL VIEW IN VIEWS
         [HttpPost]
         public IActionResult CreateFree(MagazijnPartij emp)
         {
@@ -406,6 +414,8 @@ namespace ALPHA_DGS.Controllers
         // GET: MagazijnPartijs/Edit/5
 
         // BEWERK/UPDATE INGEVOERDE ITEMS (GET) 
+
+        // LET OP PARTIAL VIEW IN VIEWS
         public IActionResult Edit(int id)
         {
             ViewData["MagazijnId"] = new SelectList(_context.Magazijn, "Id", "Id");
@@ -419,6 +429,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // BEWERK/UPDATE INGEVOERDE ITEMS (POST) 
+
+        // LET OP PARTIAL VIEW IN VIEWS
         // POST: MagazijnPartijs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -434,6 +446,8 @@ namespace ALPHA_DGS.Controllers
 
 
         //INFO AANVRAAG VAN INGEVOERDE ITEMS (GET) 
+
+        // LET OP PARTIAL VIEW IN VIEWS
         public IActionResult Details(int id)
         {
             ViewData["MagazijnId"] = new SelectList(_context.Magazijn, "Id", "Id");
@@ -447,6 +461,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // INFO INGEVOERDE ITEMS (GET) (DEFUNCT) 
+
+        // LET OP PARTIAL VIEW IN VIEWS
         public async Task<IActionResult> Details2(int? id)
         {
             if (id == null)
