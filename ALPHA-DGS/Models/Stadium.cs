@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+    //MODEL VOOR TABEL STADIA
+
     public class Stadium
     {
         [Key]

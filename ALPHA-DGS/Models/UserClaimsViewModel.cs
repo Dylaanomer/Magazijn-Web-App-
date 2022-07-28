@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+
+    //MODEL VOOR GEBRUIKER CLAIMS (OF IE TOEGANG MAG HEBBEN VOOR BEPAALDE CRUD OPERATIES)
+
+
+
     public class UserClaimsViewModel
     {
         public UserClaimsViewModel()
