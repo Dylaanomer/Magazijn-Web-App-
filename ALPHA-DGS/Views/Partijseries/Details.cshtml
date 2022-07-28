@@ -1,0 +1,42 @@
+﻿@model ALPHA_DGS.Models.Partijserie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Partijserie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PsJaarletter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PsJaarletter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PsVan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PsVan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PsTot)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PsTot)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PsHerk)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PsHerk)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PserId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

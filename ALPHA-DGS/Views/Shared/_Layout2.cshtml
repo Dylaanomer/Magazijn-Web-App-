@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityManager</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous" />
+</head>
+
+<style>
+    /* unvisited link */
+    a {
+        font-size: 16px;
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+        a:before {
+            content: '';
+            background: palevioletred;
+            display: block;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-position: 0;
+        }
+
+            a:hover::before {
+                width: 100%;
+            }
+
+    .intro {
+        background: #1f1d1d;
+    }
+
+    .intro2 {
+        background: purple;
+    }
+
+    .whitetext {
+        color: white;
+    }
+</style>
+
+
+
+
+
+    <body>
+        <header>
+           
+            
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                <partial name="_Notifications" />
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted bg-black intro2">
+            <div class="container whitetext">
+                &copy; 2020 - IdentityManager - <a class="whitetext" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>

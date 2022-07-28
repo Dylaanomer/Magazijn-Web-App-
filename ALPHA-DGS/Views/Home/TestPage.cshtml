@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ALPHA_DGS.Models.MagazijnPartij>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <select id="ddlCustomers" name="CustomerId" asp-items="ViewBag.MagazijnId">
+            <option value="0">--Select Customer--</option>
+        </select>
+        <input type="hidden" name="CustomerName" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" asp-page-handler="Submit" />
+        @if (ViewData["Message"] != null)
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    alert("@ViewData["Message"]");
+                };
+            </script>
+        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js">
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $("#ddlCustomers").select2();
+            });
+            $("body").on("change", "#ddlCustomers", function () {
+                $("input[name=CustomerName]").val($(this).find("option:selected").text());
+            });
+        </script>
+    </form>
+</body>
+</html>

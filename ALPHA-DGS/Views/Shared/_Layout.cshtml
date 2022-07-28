@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityManager</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" /> 
+    <link href="C:\Users\glaci\source\repos\BETA-6-AJAX-main\ALPHA-DGS\wwwroot\css\mvc-grid\mvc-grid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous" />
+</head>
+
+<style>
+    /* unvisited link */
+    a {
+        font-family: "Avenir LT Pro",sans-serif;
+        font-size: 16px;
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+        a:before {
+            content: '';
+            background: palevioletred;
+            display: block;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-position: 0;
+        }
+
+            a:hover::before {
+                width: 100%;
+            }
+
+    .intro {
+        background: #1f1d1d;
+    }
+
+    .intro2 {
+        background: purple;
+    }
+
+    .whitetext {
+        color: white;
+    }
+</style>
+
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3 intro">
+            <div class="container intro ">
+                <a class="navbar-brand intro" asp-area="" asp-controller="Home" asp-action="Index">
+
+                    <img src="images/logoDGSXDDD.png" alt="Sample Photo" heigh="150px" width="100px" />
+                </a>
+                <button class="navbar-toggler intro" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse intro ">
+                    <partial name="_LoginPartialCustom" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="User" asp-action="Index">Users</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="Roles" asp-action="Index">Roles</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="Magazijns" asp-action="Index">Magazijn</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="Magazijns" asp-action="IndexMagazijn">Overview</a>
+                        </li>
+                         <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="Stadia" asp-action="Index">Additions</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="MagazijnPartijs" asp-action="IndexHEFTRUCK">Lots in storage</a>
+                        </li>
+                        <li class="menu-main__list-item menu-main__list-item--level-0 menu-main__list-item--first">
+                            <a class="nav-link text-white " asp-controller="Partijseries" asp-action="IndexMore">Lot Series</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <partial name="_Notifications" />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-black intro2">
+        <div class="container whitetext">
+            &copy; 2020 - IdentityManager - <a class="whitetext" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="C:\Users\glaci\source\repos\BETA-6-AJAX-main\ALPHA-DGS\wwwroot\js\mvc-grid\mvc-grid.js"></script>
+    <script>
+        document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml"; }
+
+
+   
+
+@model IQueryable<MagazijnPartij>
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Pvan).Titled("Pvan");
+        columns.Add(model => model.Ptot).Titled("Ptot");
+        columns.Add(model => model.PHerk).Titled("PHerk");
+        columns.Add(model => model.MagazijnId).Titled("Magazijn");
+        columns.Add(model => model.StadiumId).Titled("Stadium");
+
+
+        columns.Add(model => model.Naam).Titled("Naam");
+        columns.Add(model => model.VpNaam).Titled("Vpnaam").Formatted("{0:d}");
+        columns.Add(model => model.Uitserie).Titled("Uitserie");
+    })
+
+
+    .Using(GridFilterMode.Row)
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable()
+)+
+
+
+
+
+
+<a class="text-dark " asp-area="" asp-controller="Home" asp-action="Index">Terug naar website</a>
+
+
+

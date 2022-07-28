@@ -1,0 +1,107 @@
+﻿@model ALPHA_DGS.Models.Magazijn
+
+@{ ViewData["Title"] = "Details";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Ingevulde dingen in @Model.Naam</h1>
+
+<style>
+    table {
+        position: relative;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+    }
+
+    td, th {
+        white-space: nowrap;
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #eee;
+        position: sticky;
+        top: -1px;
+        z-index: 2;
+    }
+
+
+
+    .column {
+        display: inline-block;
+        max-width: 200px;
+    }
+
+    .block {
+        border: 1px solid #ddd;
+        max-width: 200px;
+        padding: 10px;
+    }
+
+    &:first-of-type {
+        left: 0;
+        z-index: 3;
+    }
+
+    tbody tr td:first-of-type {
+        background-color: #eee;
+        position: sticky;
+        left: -1px;
+        text-align: left;
+    }
+</style>
+
+<div class="modal fade" id="addMagazijn">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addMagazijn">  Voeg Partijserie</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+
+                <div>
+                    <p>
+                        <a class="btn btn-primary" asp-controller="MagazijnPartijs" asp-action="Insert" asp-route-id="@Model.Id">New Country</a>
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].Pvan)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].Ptot)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].PHerk)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].Naam)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; }
+                            <div>
+                                <div>
+                                    @foreach (var item in Model.PartijSeriesMagazijn)
+                                    {
+                                        if (i > 0 && i % 6 == 1)
+                                        {
+                                            // close the div and start again
+                    @:</div><div class="column">
+                    }
+                <div class="block">@item.Pvan</div>
+                                <a asp-action="Delete" asp-controller="MagazijnPartijs" asp-route-id="@item.Id">Delete</a>
+                                                <div class="block">@item.Ptot</div>
+                                                                <a asp-action="Delete" asp-controller="MagazijnPartijs" asp-route-id="@item.Id">Delete</a>i++;
+                                                                            }
+                                </div>
+                            </div>
+
+                        </tbody>
+                    </table>
+                </div>

@@ -1,0 +1,343 @@
+﻿@model ALPHA_DGS.Models.GeneralModelView
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        position: relative;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+    }
+    td, th {
+        white-space: nowrap;
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #eee;
+        position: sticky;
+        top: -1px;
+        z-index: 2;
+    }
+
+    #wrapper{
+        display:flex;
+        justify-content:space-between;
+        background:red;
+    }
+
+    #c2{
+        
+        float:right;
+    }​
+   
+    .column {
+        display: inline-block;
+        max-width: 200px;
+    }
+    .block {
+        border: 1px solid #ddd;
+        max-width: 200px;
+        padding: 10px;
+    }
+    &:first-of-type {
+         left: 0;
+         z-index: 3;
+     }
+    tbody tr td:first-of-type {
+        background-color: #eee;
+        position: sticky;
+        left: -1px;
+        text-align: left;
+    }
+</style>
+
+
+
+   
+
+
+ <a class="btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Magazijn Dropdown 
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 1})"> Magazijn 1 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 2})"> Magazijn 2 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 3})"> Magazijn 3 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 4})"> Magazijn 4 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 5})"> Magazijn 5 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 6})"> Magazijn 6 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 7})"> Magazijn 7 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 8})"> Magazijn 8 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 9})"> Magazijn 9 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 10})"> Magazijn 10 </button>
+
+                                 <button type="button" class="dropdown-item" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action("Details", "Magazijns", new {id = 11})"> Magazijn 11 </button>
+
+
+                                </div>
+                            </li>
+
+
+<div class="wrapper">
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Create">Vrije Invoer</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2" >
+        <a class="btn btn-primary" asp-action="Details">Info</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Delete">Afvoeren</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Create">Ok</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Create">Samenstellen</a>
+    </div>
+    
+    <br/> <br/> <br/> <br/>
+
+    <div id="c2">
+        <a class="btn btn-primary" asp-action="Details">Overzicht</a>
+    </div>
+
+
+
+    <div id="PlaceHolderHere"></div>
+
+    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action("Create")"> Toon Magazijn</button>
+
+
+    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action("Create")"> Voeg Toe</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Partijseries[0].PserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Partijseries[0].PsJaarletter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Partijseries[0].PsVan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Partijseries[0].PsTot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Partijseries[0].PsHerk)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MagazijnPartijs[0].MagazijnId)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tbody>
+            @foreach (var item in Model.Magazijns)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentMloId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LokatieType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bezet)
+                </td>
+                <td>
+                <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijn" data-url="@Url.Action($"Details2/{item.Id}")"> Info</button>
+                </td>
+
+                            </tr>}
+        </tbody>
+
+        <tbody>
+            @foreach (var item in Model.MagazijnPartijs)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Pvan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ptot)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PHerk)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MagazijnId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StadiumId)
+    </td>
+    <td>
+        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action($"Edit/{item.Id}")"> Edit</button>
+    </td>
+
+
+
+</tr>}
+        </tbody>
+
+        <h4>MagazijnPartij</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="MagazijnPartijs[0].Id" />
+                    <div class="form-group">
+                        <label asp-for="MagazijnPartijs[0].Pvan" class="control-label"></label>
+                        <input asp-for="MagazijnPartijs[0].Pvan" class="form-control" />
+                        <span asp-validation-for="MagazijnPartijs[0].Pvan" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MagazijnPartijs[0].Ptot" class="control-label"></label>
+                        <input asp-for="MagazijnPartijs[0].Ptot" class="form-control" />
+                        <span asp-validation-for="MagazijnPartijs[0].Ptot" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        @{ int i = 1; }
+        <div>
+            <div>
+                @foreach (var item in Model.MagazijnPartijs)
+                {
+                    if (i > 0 && i % 6 == 1)
+                    {
+                        // close the div and start again
+@:</div><div class="column">
+}
+<div class="block">@item.Pvan</div>
+
+
+                <div class="block">@item.Ptot</div>
+
+                                <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action($"Edit/{item.Id}")"> Edit</button>
+
+                                                <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action($"Details/{item.Id}")"> Info</button>                i++;
+                                                            }
+            </div>
+        </div>
+
+        <div class="modal fade" id="AddUpdateModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title" id="AddUpdateModelLabel">Add Patient</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            @* hidden filed for storing Id *@
+                            <input type="hidden" id="hfpatientId" />
+                            <div class="form-group">
+                                <label for="txtPatientName">Partijserie Naam</label>
+                                <input type="text" class="form-control" id="txtPatientName" placeholder="Patient Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPatientNumber">Patient Number</label>
+                                <input type="text" class="form-control" id="txtPatientNumber" placeholder="Patient Number" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPatientEmail">Patient Email</label>
+                                <input type="email" class="form-control" id="txtPatientEmail" placeholder="Patient Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAddress">Address</label>
+                                <input type="text" class="form-control" id="txtAddress" placeholder="Address" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtBloodGroup">BloodGroup</label>
+                                <input type="text" class="form-control" id="txtBloodGroup" placeholder="BloodGroup" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnAddpatient" onclick="return AddPatient();">Create Patient</button>
+                        <button type="button" class="btn btn-primary" id="btnUpdatepatient" style="display:none;" onclick="UpdatePatient();">Update Patient</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </table>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#loginModal").modal('show');
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#loginModal").modal('hide');
+        });
+    </script>
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+
+

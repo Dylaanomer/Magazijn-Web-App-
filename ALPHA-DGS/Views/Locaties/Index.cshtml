@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ALPHA_DGS.Models.MagazijnPartij>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Locaties
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie1">TEST 1</a>
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie2">TEST 2</a>
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie3">TEST 3</a>
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie4">TEST 4</a>
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie5">TEST 5</a>
+        <a class="dropdown-item" asp-controller="Locaties" asp-action="Locatie6">TEST 6</a>
+
+    </div>
+</li>
+
+<p>
+    <a asp-action="Create">Create New</a>
+
+    <a asp-action="IndexOVER">Overzichtelijke view</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pvan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ptot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PHerk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VpNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stadium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uitserie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AantFust)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Naam)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pvan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ptot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHerk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Magazijn.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VpNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stadium.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uitserie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AantFust)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

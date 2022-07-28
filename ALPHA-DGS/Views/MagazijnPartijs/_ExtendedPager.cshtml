@@ -1,0 +1,63 @@
+﻿
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml"; }
+
+
+@model IGrid<MagazijnPartij>
+
+<div class="mvc-grid">
+    <div class="mvc-grid-table">
+        <table>
+            <thead>
+                <tr class="mvc-grid-headers">
+                    @foreach (IGridColumn column in Model.Source)
+                    {
+                        <th@(column.AsAttributes())>
+                            <span class="mvc-grid-title">@column.Title</span>
+                            </th>
+                        }
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Rows.Any())
+            {
+                foreach (IGridRow<Magazijn> row in Model.Rows)
+                {
+                    <tr class="@row.Index">
+                        @foreach (IGridColumn column in Model.Columns)
+                        {
+                            <td class="@column.CssClasses">@column.ValueFor(row)</td>
+                        }
+                    </tr>
+
+                    if (row.Model.PartijSeriesMagazijn.Any())
+                    {
+                        <tr>
+                            <td colspan="@Model.Columns.Count()">
+                                @(Html
+                                        .Grid("_NestedPersonGrid", row.Model.PartijSeriesMagazijn)
+                                        .Build(columns =>
+                                        {
+                                            columns.Add(model => model.Magazijn).Titled("Child name");
+                                            columns.Add(model => model.Partijserie).Titled("Age");
+                                            columns.Add(model => model.Stadium).Titled("Birthday").Formatted("{0:d}");
+                                        })
+                                    )
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <tr class="mvc-grid-empty-row">
+                    <td colspan="@Model.Columns.Count()">
+                        @Model.EmptyText
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
+

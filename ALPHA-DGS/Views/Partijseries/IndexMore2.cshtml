@@ -1,0 +1,114 @@
+﻿@model ALPHA_DGS.Models.GeneralModelView
+
+@{
+    ViewData["Title"] = "IndexMore2";
+}
+
+<h2>This is my View</h2>
+@section Scripts
+{
+    <script>
+        $(function(){
+            alert("All good");
+        });
+    </script>
+}
+
+
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Partijseries[0].PserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partijseries[0].PsJaarletter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partijseries[0].PsVan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partijseries[0].PsTot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partijseries[0].PsHerk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Partijseries)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PsJaarletter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PsVan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PsTot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PsHerk)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+    <tbody>
+        @foreach (var item in Model.Magazijns)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentMloId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LokatieType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bezet)
+            </td>
+          
+        </tr>
+        }
+    </tbody>
+
+    <tbody>
+        @foreach (var item in Model.MagazijnPartijs)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ptot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pvan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHerk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AantFust)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VpNaam)
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+
+</table>
+

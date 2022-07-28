@@ -1,0 +1,113 @@
+﻿@model ALPHA_DGS.Models.MagazijnPartij
+
+@{ ViewData["Title2"] = "Create";
+    Layout = "~/Views/Shared/_Layout2.cshtml"; }
+
+
+<link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+<!-- select2-bootstrap4-theme -->
+<link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+
+
+
+
+
+
+
+<div class="modal fade" id="addMagazijnPartij">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addMagazijnPartijLabel">  Voeg Partijserie LOL</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+
+                <div class="modal-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                  
+                        <div class="form-group">
+                            <label asp-for="Pvan" class="control-label"></label>
+                            <select id="ddlCustomers" asp-for="Pvan" class="form-control" asp-items="ViewBag.PartijSeriePsvan"></select>
+                            <span asp-validation-for="Pvan" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Ptot" class="control-label"></label>
+                            <select id="ddlCustomers2" asp-for="Ptot" class="form-control" asp-items="ViewBag.PartijSeriePstot"></select>
+                            <span asp-validation-for="Ptot" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PHerk" class="control-label"></label>
+                            <input asp-for="PHerk" class="form-control" />
+                            <span asp-validation-for="PHerk" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VpNaam" class="control-label"></label>
+                            <input asp-for="VpNaam" class="form-control" />
+                            <span asp-validation-for="VpNaam" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StadiumId" class="control-label"></label>
+                            <select asp-for="StadiumId" class="form-control" asp-items="ViewBag.StadiumId"></select>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="Uitserie" /> @Html.DisplayNameFor(model => model.Uitserie)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="AantFust" class="control-label"></label>
+                            <input asp-for="AantFust" class="form-control" />
+                            <span asp-validation-for="AantFust" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Naam" class="control-label"></label>
+                            <input asp-for="Naam" class="form-control" />
+                            <span asp-validation-for="Naam" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MagazijnId" class="control-label"></label>
+                            <select asp-for="MagazijnId" class="form-control" asp-items="ViewBag.MagazijnId"></select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="IndexGebruiker">Back to List</a>
+    <h4>
+    <a asp-action="IndexHEFTRUCK">Back to App</a>
+    </h4>
+</div>
+   
+
+@section Scripts
+{
+
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/js/select2.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#ddlCustomers").select2();
+       
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#ddlCustomers2").select2();
+       
+        });
+    </script>
+}

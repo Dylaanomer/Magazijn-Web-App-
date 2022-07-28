@@ -1,0 +1,43 @@
+﻿
+@model dynamic
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>@ViewBag.Message</h2>
+
+<p><b>Teacher List</b></p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+    </tr>
+    @foreach (Partijserie partijserie in Model.Partijseries)
+    {
+        <tr>
+            <td>@partijserie.PserId</td>
+            <td>@partijserie.PsJaarletter</td>
+            <td>@partijserie.PsHerk</td>
+        </tr>
+    }
+</table>
+
+<p><b>Student List</b></p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Enrollment No</th>
+    </tr>
+    @foreach (MagazijnPartij magazijnPartij in Model.Students)
+    {
+        <tr>
+            <td>@magazijnPartij.Id</td>
+            <td>@magazijnPartij.VpNaam</td>
+            <td>@magazijnPartij.PHerk</td>
+        </tr>
+    }
+</table>

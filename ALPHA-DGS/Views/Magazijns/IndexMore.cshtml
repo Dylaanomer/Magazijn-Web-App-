@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ALPHA_DGS.Models.Magazijn>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].Pvan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].Ptot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartijSeriesMagazijn[0].PHerk)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartijSeriesMagazijn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartijSeriesMagazijn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartijSeriesMagazijn)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="MagazijnPartijs" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-success" asp-controller="MagazijnPartijs" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-danger"  asp-controller="MagazijnPartijs" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

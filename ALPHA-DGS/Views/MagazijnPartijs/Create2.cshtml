@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#<%=ASPtxtbox.ClientID%>').change(function ()
+            {
+                alert('Change Event Done by asp.net control');
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#HTMLtxtbox").change(function ()
+            {
+                alert('Change Event Done by HTML control');
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table>
+                <tr>
+                    <td>Asp.net Control onchane Test</td>
+                    <td>
+                        <asp:TextBox ID="ASPtxtbox" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>HTML Control onchange Test</td>
+                    <td>
+                        <input type="text" id="HTMLtxtbox" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

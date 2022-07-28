@@ -1,0 +1,13 @@
+# ASP.NET
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'Magazijn'
+    VirtualApplication: 'dgs-magazijn'
+    Package: 'C:\Magazijn\DGS-MAGAZIJN-JQUERY.zip'
+    RemoveAdditionalFilesFlag: true
+    TakeAppOfflineFlag: true
+    XmlVariableSubstitution: true
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+

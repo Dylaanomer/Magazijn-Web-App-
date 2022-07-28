@@ -1,0 +1,54 @@
+﻿@model Magazijn
+
+<div class="modal fade" id="addMagazijn">
+    
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="addMagazijnLabel">  Bewerk Partijserie KIJK NAAR ME FUCKING TEXT!!!!!!!!!!!!!!</h4>
+                <button type="button"  class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
+                
+                <div class="modal-body">
+
+                    <div>
+                        <table class="table">
+
+                            <tbody>
+                                @{ int i = 1; }
+                                <div>
+                                    <div>
+                                        @foreach (var item in Model.PartijSeriesMagazijn)
+                                        {
+                                            if (i > 0 && i % 6 == 1)
+                                            {
+                                                // close the div and start again
+                        @:</div><div class="column">
+                        }
+                <div class="block">@item.Pvan</div>
+                                <a asp-action="Delete" asp-controller="MagazijnPartijs" asp-route-id="@item.Id">Delete</a>
+                                                <div class="block">@item.Ptot</div>
+                                                                <a asp-action="Delete" asp-controller="MagazijnPartijs" asp-route-id="@item.Id">Delete</a>i++;
+                                                                            }
+                                    </div>
+                                </div>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"> Close DIT SHITTTTT!!!!!!!!!!!! </button>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>

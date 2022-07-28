@@ -1,0 +1,178 @@
+﻿@model ALPHA_DGS.Models.MagazijnPartijModelView
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<style>
+    table {
+        position: relative;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+    }
+
+    td, th {
+        white-space: nowrap;
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #eee;
+        position: sticky;
+        top: -1px;
+        z-index: 2;
+    }
+
+   
+
+    .column {
+        display: inline-block;
+        max-width: 200px;
+    }
+
+    .block {
+        border: 1px solid #ddd;
+        max-width: 200px;
+        padding: 10px;
+    }
+
+    &:first-of-type {
+         left: 0;
+         z-index: 3;
+     }
+
+    tbody tr td:first-of-type {
+        background-color: #eee;
+        position: sticky;
+        left: -1px;
+        text-align: left;
+    }
+</style>
+
+<form asp-controller="MagazijnPartijs" asp-action="Index" method="get">
+    <p>
+        ZOEK SERIE FUCNTIE: <input type="text" asp-for="SearchString6" />
+        <input type="submit" value="Filter" />
+
+
+        PVan: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+        PTot: <input type="text" asp-for="SearchString2" />
+        <input type="submit" value="Filter" />
+        PHerk: <input type="text" asp-for="SearchString3" />
+        <input type="submit" value="Filter" />
+        Magazijn: <input type="text" asp-for="SearchString4" />
+        <input type="submit" value="Filter" />
+        VpNaam: <input type="text" asp-for="SearchString5" />
+        <input type="submit" value="Filter" />
+
+    </p>
+</form>
+
+
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action("Create")"> Voeg Toe</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].Pvan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].Ptot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].PHerk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].VpNaam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].Stadium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].Uitserie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].AantFust)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagazijnPartijSeries[0].MagazijnId)
+            </th>
+            <th>
+                Magazijn Ruimte 
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MagazijnPartijSeries)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pvan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ptot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHerk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VpNaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StadiumId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Uitserie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AantFust)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MagazijnId)
+        </td>
+    
+        <td>
+        @Model.MagazijnPartijSeries.Count(g => g.MagazijnId == item.MagazijnId) /42
+        </td>
+<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Wegzetten</a> |
+                <a asp-action="Create" asp-route-id="@item.Id">Ophalen</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts {
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#loginModal").modal('show');
+        });
+
+        $("#btnHideModal").click(function () {
+            $("#loginModal").modal('hide');
+        });
+    </script>
+    
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

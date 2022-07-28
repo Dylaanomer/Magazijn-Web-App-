@@ -1,0 +1,21 @@
+﻿@model ALPHA_DGS.Models.IndicatorViewModel
+
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>Used/Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var series in Model.Magazijns)
+        {
+            <tr>
+                <td>@Html.ActionLink((string)series.Naam, "Details", "Magazijns", new { id = series.Id }, null)</td>
+                <td>@Model.Partijen.Count(g => g.MagazijnId == series.Id) /42</td>
+            </tr>
+        }
+    </tbody>
+</table>

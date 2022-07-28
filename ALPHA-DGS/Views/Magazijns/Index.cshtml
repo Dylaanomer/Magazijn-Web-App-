@@ -1,0 +1,137 @@
+﻿@model ALPHA_DGS.Models.GeneralModelView
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<style>
+    table {
+        position: relative;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+    }
+    td, th {
+        white-space: nowrap;
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    th {
+        background-color: #eee;
+        position: sticky;
+        top: -1px;
+        z-index: 2;
+    }
+    .column {
+        display: inline-block;
+        max-width: 200px;
+    }
+    .block {
+        border: 1px solid #ddd;
+        max-width: 200px;
+        padding: 10px;
+    }
+    &:first-of-type {
+        left: 0;
+        z-index: 3;
+    }
+    tbody tr td:first-of-type {
+        background-color: #eee;
+        position: sticky;
+        left: -1px;
+        text-align: left;
+    }
+</style>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].ParentMloId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].LokatieType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].Naam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].Indicator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].Bezet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magazijns[0].MaxAanFust)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Magazijns)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentMloId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LokatieType)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Naam)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bezet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxAanFust)
+            </td>
+            <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#addMagazijnPartij" data-url="@Url.Action($"Details/{item.Id}")"> Info</button>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link text-black dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Magazijn Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-controller="Magazijns" asp-action="Details" asp-route-id="@item.Id">
+                        Magazijn
+                    </a>
+
+
+                </div>
+            </li>
+        </tr>
+    }
+    </tbody>
+    <tbody>
+
+
+
+
+      
+
+
+    </tbody>
+</table>
