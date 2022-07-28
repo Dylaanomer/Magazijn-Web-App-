@@ -8,6 +8,9 @@ namespace ALPHA_DGS.Data
 {
     public static class ClaimStore
     {
+
+        // CLAIMS VOOR GEBRUIKER CLAIMS
+
         public static List<Claim> claimsList = new List<Claim>()
         {
             new Claim("Create","Create"),
