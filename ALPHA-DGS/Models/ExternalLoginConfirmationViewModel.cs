@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+    // VIEW MODEL VOOR ALS SSO GELUKT IS
+
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
