@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+    //WACHTWOORD RESET VIEW MODEL (DEFUNCT DOOR SSO PRINCIPE)
+
+
     public class ResetPasswordViewModel
     {
         [Required]
