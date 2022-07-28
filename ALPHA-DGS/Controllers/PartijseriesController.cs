@@ -136,6 +136,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // INVOER van Partijseries (VOEG TOE KNOP) (GET)
+
+        // LET OP PARTIAL VIEW IN VIEWS
         [Authorize(Roles = "Admin, SuperAdmin")]
         // GET: Partijseries/Create
         public IActionResult Create()
@@ -151,6 +153,8 @@ namespace ALPHA_DGS.Controllers
         // POST: Partijseries/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        // LET OP PARTIAL VIEW IN VIEWS
 
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
