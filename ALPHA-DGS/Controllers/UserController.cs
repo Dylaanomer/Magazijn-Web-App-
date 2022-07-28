@@ -25,6 +25,7 @@ namespace ALPHA_DGS.Controllers
         }
 
 
+        // Basis Scherm voor Gebruiker Beheer (Users in de NAVBAR balk)
 
         [Authorize(Roles = "SuperAdmin")]
         public IActionResult Index()
@@ -50,6 +51,9 @@ namespace ALPHA_DGS.Controllers
             return View(userList);
         }
 
+
+        // Bewerk Scherm voor Gebruiker Beheer (GET)
+
         public IActionResult Edit(string userId)
         {
             var objFromDb = _db.ApplicationUser.FirstOrDefault(u => u.Id == userId);
@@ -71,6 +75,10 @@ namespace ALPHA_DGS.Controllers
             });
             return View(objFromDb);
         }
+
+
+
+        // Bewerk Scherm voor Gebruiker Beheer (POST)
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -108,6 +116,9 @@ namespace ALPHA_DGS.Controllers
             return View(user);
         }
 
+
+        // Verwijder Scherm voor Gebruiker Beheer (DELETE knop)
+
         [HttpPost]
         public IActionResult Delete(string userId)
         {
@@ -121,6 +132,11 @@ namespace ALPHA_DGS.Controllers
             TempData[SD.Success] = "User deleted successfully.";
             return RedirectToAction(nameof(Index));
         }
+
+
+
+
+        // Gebruiker Claims beheren (WIP) (Niet perse nodig)
 
         [Authorize(Roles = "SuperAdmin")]
         [HttpGet]
