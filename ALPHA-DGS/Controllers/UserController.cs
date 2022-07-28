@@ -136,7 +136,7 @@ namespace ALPHA_DGS.Controllers
 
 
 
-        // Gebruiker Claims beheren (WIP) (Niet perse nodig)
+        // Gebruiker Claims beheren (WIP) (Niet perse nodig) (GET)
 
         [Authorize(Roles = "SuperAdmin")]
         [HttpGet]
@@ -172,6 +172,9 @@ namespace ALPHA_DGS.Controllers
             return View(model);
         }
 
+
+
+        // Gebruiker Claims beheren (WIP) (Niet perse nodig) (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageUserClaims(UserClaimsViewModel userClaimsViewModel)
