@@ -343,7 +343,7 @@ namespace ALPHA_DGS.Controllers
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Gebruiker");
+                    await _userManager.AddToRoleAsync(user, "Gebruiker"); // DIT IS DE ROLE DAT JE KRIJGT ALS SSO INLOG DOOR GAAT (SINGLE SIGN ON)
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
