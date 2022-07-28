@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ALPHA_DGS.Models
 {
+
+    //VIEWMODEL VOOR MAGAZIJNPARTIJ VIEW PAGE VOOR DE HEFTRUCK OF ANDERE GEBRUIKERS (INDEXHEFTRUCK IN MAGAZIJNPARTIJ CONTROLLER)
+
+
     [Keyless]
     public class MagazijnPartijModelView
     {

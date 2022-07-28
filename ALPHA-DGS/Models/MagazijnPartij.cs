@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+    //MODEL VOOR MAGAZIJNPARTIJ 
+
+
     public class MagazijnPartij
     {
         [Key]
