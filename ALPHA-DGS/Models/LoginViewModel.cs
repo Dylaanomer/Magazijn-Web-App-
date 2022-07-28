@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+
+    //LOGIN VIEW MODEL (VOOR DE LOGIN SCHERM NEEM IK AAN)
+
+
     public class LoginViewModel
     {
         [Required]
