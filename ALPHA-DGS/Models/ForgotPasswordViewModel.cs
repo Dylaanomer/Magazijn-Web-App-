@@ -8,6 +8,10 @@ namespace ALPHA_DGS.Models
 {
     public class ForgotPasswordViewModel
     {
+
+
+        //DEFUNCT VANWEGEN SSO
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
