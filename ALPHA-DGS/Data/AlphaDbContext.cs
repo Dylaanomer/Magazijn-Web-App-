@@ -8,6 +8,8 @@ namespace ALPHA_DGS.Data
     {
 
         
+        // DATA DB
+
         public DbSet<IdentificatieInvoer> IDinvoer { get; set; }
 
         public DbSet<Magazijn> Magazijn { get; set; }
@@ -25,6 +27,9 @@ namespace ALPHA_DGS.Data
         public AlphaDbContext(DbContextOptions<AlphaDbContext> options) : base(options)
         {
         }
+
+
+        // GEBRUIKER DB
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
