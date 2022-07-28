@@ -132,6 +132,8 @@ namespace ALPHA_DGS.Controllers
 
 
         // INFO KNOP VOOR ITEMS IN DE MAGAZIJN INDEX (DETAILS KNOP) (JQUERY POPUP) (DEFUNCT)
+
+        // LET OP PARTIAL VIEW IN VIEWS
         public async Task<IActionResult> Details2(int? id)
         {
             if (id == null)
