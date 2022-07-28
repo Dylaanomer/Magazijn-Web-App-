@@ -9,6 +9,8 @@ namespace ALPHA_DGS.Models
     public class IdentificatieInvoer
     {
 
+        //DEFUNCT
+
 
         [Key]
         public int Id { get; set; }
