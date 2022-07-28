@@ -42,6 +42,9 @@ namespace ALPHA_DGS
                 opt.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Home/AccesDenied");
             });
 
+
+            //SINGLE SIGN ON PRINCIPE SETTINGS (SSO)
+
             services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = "Cookies";
