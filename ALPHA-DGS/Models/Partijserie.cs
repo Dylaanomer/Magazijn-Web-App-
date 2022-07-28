@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ALPHA_DGS.Models
 {
+
+    // MODEL VOOR PARTIJSERIES TABEL (CONTROL TABEL IVM MET MAGAZIJNPARTIJ)
+
+    //PARTIJ SERIES ZIJN DE DINGEN DIE INGEVOERD MOETEN WORDEN BINNEN 1 MAGAZIJN OF LOCATIE
+    
     public class Partijserie
     {
         [Key]
