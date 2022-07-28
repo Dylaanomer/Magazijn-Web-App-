@@ -11,6 +11,8 @@ namespace ALPHA_DGS.Models
     [Keyless]
     public class GeneralModelView
     {
+        //VIEWMODEL VOOR SPA TEST OMGEVING (INDEXGEBRUIKER IN MAGAZIJNPARTIJ CONTROLLER)
+
         public List<Partijserie> Partijseries { get; set; }
         public List<Magazijn> Magazijns { get; set; }
         public List<MagazijnPartij> MagazijnPartijs { get; set; }
